@@ -1,53 +1,66 @@
 ;(function() {
     "use strict";
-    
-    var sheets = Array.prototype.slice.call(document.styleSheets);
-    var vSheets = sheets.filter(function(sheet) {
-        return sheet.title;
+
+    var styleSheets, colorSheets, tempCon, colorSwitcher, controlBtn, colorSwitchs;
+
+    styleSheets = Array.prototype.slice.call(document.styleSheets),
+
+    colorSheets = styleSheets.filter(function(colorSheet) {
+        return (colorSheet.ownerNode.dataset.color && colorSheet.title);
     });
 
-    var buttons = document.createDocumentFragment();
-    var mainContainer = document.createElement("div");
-    var controlButton = document.createElement("button");
-    var container = document.createElement("div");
+    tempCon = document.createDocumentFragment();
+    colorSwitcher = document.createElement("div");
+    controlBtn = document.createElement("button");
+    colorSwitchs = document.createElement("div");
 
-    mainContainer.classList.add("ColorSwitcher");
-    controlButton.classList.add("ColorSwitcher__control");
+    colorSwitcher.classList.add("ColorSwitcher");
+    controlBtn.classList.add("ColorSwitcher__control");
+    colorSwitchs.classList.add("ColorSwitcher__switchs");
 
-    mainContainer.appendChild(controlButton);
+    colorSheets.forEach(function(colorSheet, index) {
+        var colorSwitch = document.createElement("button");
 
-    vSheets.forEach(function(sheet, index) {
-        var button = document.createElement("button");
-        button.dataset.index = "s" + index;
-        button.classList.add("ColorSwitcher__switch")
-        button.style.backgroundColor = sheet.title;
-        buttons.appendChild(button);
+        colorSwitch.classList.add("ColorSwitcher__switch")
+        colorSwitch.title = "Switch to " + colorSheet.title;
+        colorSwitch.dataset.index = "s" + index;
+        colorSwitch.style.backgroundColor = colorSheet.ownerNode.dataset.color;
+        
+        colorSwitchs.appendChild(colorSwitch);
     });
 
-    container.classList.add("ColorSwitcher__switchs");
-    container.appendChild(buttons);
+    colorSwitchs.addEventListener("click", function(event) {
+        var colorSwitch, index;
 
-    container.addEventListener("click", function(event) {
-        if ( event.target.nodeName != "BUTTON" ) {
-            return false;
+        colorSwitch = event.target;
+
+        if (colorSwitch.nodeName !== "BUTTON") {
+            return;
         }
 
-        var button = event.target;
-        var index = button.dataset.index;
-        vSheets.forEach(function(sheet, i) {
-            if (index === "s"+i) {
-                sheet.disabled = false;
+        index = colorSwitch.dataset.index;
+        
+        colorSheets.forEach(function(colorSheet, sheetIndex) {
+            if (index === ("s" + sheetIndex)) {
+                colorSheet.disabled = false;
             } else {
-                sheet.disabled = true;
+                colorSheet.disabled = true;
             }
         });
+
+        return false;
     });
 
-    controlButton.addEventListener("click", function(event) {
+    controlBtn.addEventListener("click", function(event) {
         event.target.parentElement.classList.toggle("ColorSwitcher--open");
+
+        return false;
     });
 
-    mainContainer.appendChild(container);
+    colorSwitcher.appendChild(controlBtn);
+    colorSwitcher.appendChild(colorSwitchs);
 
-    document.body.appendChild(mainContainer);
+    tempCon.appendChild(colorSwitcher);
+
+    document.body.appendChild(tempCon);
 })();
