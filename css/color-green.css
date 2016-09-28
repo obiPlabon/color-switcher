@@ -1,0 +1,27 @@
+/*
+ Green: #4bda28;
+ */
+
+h1,
+a {
+	color: #4bda28;
+}
+
+.Button,
+.Form__control {
+	border-color: #4bda28;
+}
+
+.Button {
+	color: #4bda28;
+}
+
+.Button:focus,
+.Button:hover {
+	background: #4bda28;
+	color: #fff;
+}
+
+.Form__control:focus {
+	border-color: #ddd;
+}

@@ -1,0 +1,60 @@
+*,
+*:before,
+*:after {
+	box-sizing: border-box;
+}
+
+body {
+	font: 400 16px/1.6 "Droid Serif", serif;
+	margin: 0;
+	color: #050d2b;
+	background: #f6f6f6;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:focus,
+a:hover {
+	text-decoration: underline;
+}
+
+
+.Container {
+	max-width: 900px;
+	margin: 0 auto;
+	padding: 0 15px;
+}
+
+.Button {
+	display: inline-block;
+	padding: 15px 30px;
+	border: 2px solid transparent;
+	border-radius: 3px;
+	font-size: inherit;
+	font-family: inherit;
+	line-height: 1;
+	text-transform: uppercase;
+	text-decoration: none;
+	background: transparent;
+	cursor: pointer;
+	-webkit-transition: all .2s;
+	transition: all .2s;
+}
+
+.Button:focus,
+.Button:hover {
+	text-decoration: none;
+}
+
+.Form__control {
+	display: block;
+	width: 100%;
+	margin-bottom: 10px;
+	padding: 10px;
+	border: 2px solid transparent;
+	border-radius: 3px;
+	-webkit-transition: all .2s;
+	transition: all .2s;
+}

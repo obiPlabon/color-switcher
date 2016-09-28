@@ -1,0 +1,27 @@
+/*
+ Red: #ff1d23;
+ */
+
+h1,
+a {
+	color: #ff1d23;
+}
+
+.Button,
+.Form__control {
+	border-color: #ff1d23;
+}
+
+.Button {
+	color: #ff1d23;
+}
+
+.Button:focus,
+.Button:hover {
+	background: #ff1d23;
+	color: #fff;
+}
+
+.Form__control:focus {
+	border-color: #ddd;
+}

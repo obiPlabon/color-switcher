@@ -1,0 +1,27 @@
+/*
+ Magenta: #f41c54;
+ */
+
+h1,
+a {
+	color: #f41c54;
+}
+
+.Button,
+.Form__control {
+	border-color: #f41c54;
+}
+
+.Button {
+	color: #f41c54;
+}
+
+.Button:focus,
+.Button:hover {
+	background: #f41c54;
+	color: #fff;
+}
+
+.Form__control:focus {
+	border-color: #ddd;
+}
