@@ -9,11 +9,11 @@ First of all add `color-swither.css` and `color-switcher.js` in proper place. An
 ``` html
 <link rel="alternate stylesheet" data-color="A" title="B" href="C">
 ```
-- A: Color code in hexadecimal or rgb or in rgba.
+- A: Color code in hexadecimal or rgb or rgba.
 - B: An apprehensible and concise title.
 - C: Alternative color stylesheet URL.
 
-Make sure to add `data-color` and `title` attribute, otherwise Color Swither will not recognize the alternative color stylesheet. You also have to add your default color stylesheet. Here is an example:
+Make sure to add `data-color` and `title` attribute, otherwise **Color Switcher** will not recognize the alternative color stylesheet. You also have to add your default color stylesheet. Here is an example:
 
 ``` html
 <!-- Default -->
@@ -21,3 +21,9 @@ Make sure to add `data-color` and `title` attribute, otherwise Color Swither wil
 <!-- Alternative -->
 <link rel="alternate stylesheet" data-color="A" title="B" href="C">
 ```
+
+## Can I?
+
+Yes, you can use **Color Switcher** however and whereever you want.
+
+Feel free, it is FREE :)
