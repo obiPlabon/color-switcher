@@ -59,8 +59,6 @@
 
     colorSwitcher.appendChild(controlBtn);
     colorSwitcher.appendChild(colorSwitchs);
-
     tempCon.appendChild(colorSwitcher);
-
     document.body.appendChild(tempCon);
 })();
