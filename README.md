@@ -26,4 +26,4 @@ Make sure to add `data-color` and `title` attribute, otherwise **Color Switcher*
 
 Yes, you can use **Color Switcher** however and wherever you want.
 
-Feel free, it is totaly freeeee ☺
+Feel free, it is totally free...
