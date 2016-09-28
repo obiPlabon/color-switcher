@@ -31,7 +31,7 @@
     border-radius: 0 5px 5px 0;
     box-shadow: 5px 0 7px rgba(0,0,0,.15);
     color: #fff;
-    background: #ff1d23;
+    background: #ff463a;
     cursor: pointer;
     -webkit-transition: all .2s;
     transition: all .2s;
@@ -49,7 +49,7 @@
 
 .ColorSwitcher--open .ColorSwitcher__control {
     background: #fff;
-    color: #ff1d23;
+    color: #ff463a;
 }
 
 .ColorSwitcher__switchs {
