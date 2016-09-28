@@ -8,9 +8,11 @@
     top: 200px;
     left: -162px;
     width: 162px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    background: #f6f6f6;
+    padding: 20px 10px;
+    background: #fff;
+    border-radius: 0 5px 5px 0;
+    box-shadow: 0 0 15px rgba(0,0,0,.15);
+    -webkit-transition: left .2s;
     transition: left .2s;
 }
 
@@ -24,17 +26,32 @@
     left: 100%;
     width: 40px;
     height: 40px;
-    margin-top: -1px;
-    border: 0;
     padding: 0;
-    border: 1px solid #ddd;
+    border: 0;
+    border-radius: 0 5px 5px 0;
+    box-shadow: 5px 0 7px rgba(0,0,0,.15);
+    color: #fff;
+    background: #ff1d23;
     cursor: pointer;
-    background: #333;
+    -webkit-transition: all .2s;
+    transition: all .2s;
 }
 
-.ColorSwitcher__control:focus
-.ColorSwitcher__control:hover,
-    
+.ColorSwitcher__control:before {
+    content: "⚙";
+    display: inline-block;
+    height: 38px;
+    font-size: 30px;
+    font-style: normal;
+    -webkit-animation: controlSpin 4s linear infinite;
+            animation: controlSpin 4s linear infinite;
+}
+
+.ColorSwitcher--open .ColorSwitcher__control {
+    background: #fff;
+    color: #ff1d23;
+}
+
 .ColorSwitcher__switchs {
     margin: -5px;
 }
@@ -50,6 +67,16 @@
     margin: 5px;
 }
 
-.ColorSwitcher__switch:focus.
-.ColorSwitcher__switch:hover {
+@-webkit-keyframes controlSpin {
+    100% {
+        -webkit-transform:rotate(360deg);
+                transform:rotate(360deg);
+    }
+}
+
+@keyframes controlSpin {
+    100% {
+        -webkit-transform:rotate(360deg);
+                transform:rotate(360deg);
+    }
 }
