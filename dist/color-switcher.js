@@ -3,7 +3,7 @@
 
     var styleSheets, colorSheets, tempCon, colorSwitcher, controlBtn, colorSwitchs;
 
-    styleSheets = Array.prototype.slice.call(document.styleSheets),
+    styleSheets = Array.prototype.slice.call(document.styleSheets);
 
     colorSheets = styleSheets.filter(function(colorSheet) {
         return (colorSheet.ownerNode.dataset.color && colorSheet.title);
