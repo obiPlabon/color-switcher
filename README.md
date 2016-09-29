@@ -6,22 +6,70 @@ Color Switcher is a simple solution for you website template demo. You can easil
 
 ## How
 
-First of all add `color-swither.css` and `color-switcher.js` in proper place. And then you must add your alternative color stylesheets in the following format:
+First of all add `color-swither.css` and `color-switcher.js` in proper place. And then pass a stylesheet array of objects to `ColorSwitcher.init()` method. Here is an example stylesheet array format:
 
-``` html
-<link rel="alternate stylesheet" data-color="A" title="B" href="C">
+```javascript
+var colorSheets = [
+    {
+        color: "#ff8400",
+        title: "Switch to Default",
+        href: "./css/color-default.css"
+    },
+    {
+        color: "#ff463a",
+        title: "Switch to Red",
+        href: "./css/color-red.css"
+    },
+    {
+        color: "#4bda28",
+        title: "Switch to Green",
+        href: "./css/color-green.css"
+    },
+    {
+        color: "#4650dc",
+        title: "Switch to Blue",
+        href: "./css/color-blue.css"
+    },
+    {
+        color: "#f41c54",
+        title: "Switch to Magenta",
+        href: "./css/color-magenta.css"
+    }
+];
 ```
-- A: Color code in hexadecimal or rgb or rgba.
-- B: An apprehensible and concise title.
-- C: Alternative color stylesheet URL.
 
-Make sure to add `data-color` and `title` attribute, otherwise **Color Switcher** will not recognize the alternative color stylesheet. You also have to add your default color stylesheet. Here is an example:
+So, lets see how can we initialize
 
-``` html
-<!-- Default -->
-<link rel="stylesheet" data-color="A" title="B" href="C">
-<!-- Alternative -->
-<link rel="alternate stylesheet" data-color="A" title="B" href="C">
+```javascript
+var colorSheets = [
+    {
+        color: "#ff8400",
+        title: "Switch to Default",
+        href: "./css/color-default.css"
+    },
+    {
+        color: "#ff463a",
+        title: "Switch to Red",
+        href: "./css/color-red.css"
+    },
+    {
+        color: "#4bda28",
+        title: "Switch to Green",
+        href: "./css/color-green.css"
+    },
+    {
+        color: "#4650dc",
+        title: "Switch to Blue",
+        href: "./css/color-blue.css"
+    },
+    {
+        color: "#f41c54",
+        title: "Switch to Magenta",
+        href: "./css/color-magenta.css"
+    }
+];
+
+ColorSwitcher.init(colorSheets);
 ```
 
 ## Can I?
