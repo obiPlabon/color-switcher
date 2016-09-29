@@ -6,7 +6,7 @@ Color Switcher is a simple solution for you website template demo. You can easil
 
 ## How
 
-First of all add `color-swither.css` and `color-switcher.js` in proper place. And then pass a stylesheet array of objects to `ColorSwitcher.init()` method. Here is an example stylesheet array format:
+First of all add `color-switcher.css` and `color-switcher.js` in proper place. And then pass a stylesheet array of objects to `ColorSwitcher.init()` method. Here is an example stylesheet array format:
 
 ```javascript
 var colorSheets = [
@@ -38,7 +38,7 @@ var colorSheets = [
 ];
 ```
 
-So, lets see how can we initialize
+So, lets see how we can initialize
 
 ```javascript
 var colorSheets = [
