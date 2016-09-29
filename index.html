@@ -39,27 +39,35 @@
             {
                 color: "#ff8400",
                 title: "Switch to Default",
-                href: "./css/color-default.css"
+                href: "./css/color-default.css",
+                group: "Color Scheme",
+                callback: function(btn, obj) {
+                    document.body.classList.toggle("body-boxed");
+                }
             },
             {
                 color: "#ff463a",
                 title: "Switch to Red",
-                href: "./css/color-red.css"
+                href: "./css/color-red.css",
+                group: "Layout"
             },
             {
                 color: "#4bda28",
                 title: "Switch to Green",
-                href: "./css/color-green.css"
+                href: "./css/color-green.css",
+                group: "Navbar"
             },
             {
                 color: "#4650dc",
                 title: "Switch to Blue",
-                href: "./css/color-blue.css"
+                href: "./css/color-blue.css",
+                group: "Layout"
             },
             {
                 color: "#f41c54",
                 title: "Switch to Magenta",
-                href: "./css/color-magenta.css"
+                href: "./css/color-magenta.css",
+                group: "Navbar"
             }
         ];
 

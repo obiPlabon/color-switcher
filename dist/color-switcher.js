@@ -3,11 +3,13 @@
 var ColorSwitcher = (function() {
     
     function initColorSwitcher(colorSheets) {
-        var tempCon, colorSwitcher, controlBtn, colorSwitchs, linkHolderHtml, linkHolder;
+        var tempCon, groupedSheets, colorSwitcher, controlBtn, colorSwitchs, linkHolderHtml, linkHolder;
 
         if (Object.prototype.toString.call(colorSheets) !== "[object Array]") {
             return;
         }
+
+        groupedSheets = {};
 
         tempCon = document.createDocumentFragment();
         
@@ -27,44 +29,58 @@ var ColorSwitcher = (function() {
 
         linkHolder = document.getElementById("ColorSwitcherLinkHolder");
 
-        colorSheets.forEach(function(colorSheet, index) {
-            var colorSwitch;
+        // var colorSwitch;
 
-            if (colorSheet.color && colorSheet.title && colorSheet.href) {
-                colorSwitch = document.createElement("button");
+        // if (colorSheet.color && colorSheet.title && colorSheet.href) {
+        //     colorSwitch = document.createElement("button");
 
-                colorSwitch.classList.add("ColorSwitcher__switch")
-                colorSwitch.title = colorSheet.title;
-                colorSwitch.dataset.index = index;
-                colorSwitch.style.backgroundColor = colorSheet.color;
-                
-                colorSwitchs.appendChild(colorSwitch);
+        //     colorSwitch.classList.add("ColorSwitcher__switch")
+        //     colorSwitch.title = colorSheet.title;
+        //     colorSwitch.dataset.index = index;
+        //     colorSwitch.style.backgroundColor = colorSheet.color;
+            
+        //     colorSwitchs.appendChild(colorSwitch);
+        // }
+        
+        colorSheets.forEach(function(colorSheet, index) {            
+            if ((colorSheet.color || colorSheet.thumbnail) && colorSheet.title && colorSheet.href) {
+                var group = colorSheet.group || "Color Scheme";
+
+                colorSheet.group = group;
+
+                if (!groupedSheets[group]) {
+                    groupedSheets[group] = [colorSheet];
+                } else {
+                    groupedSheets[group].push(colorSheet);
+                }
             }
         });
 
-        colorSwitchs.addEventListener("click", function(event) {
-            var index;
+        console.log(groupedSheets);
 
-            if (event.target.nodeName !== "BUTTON") {
-                return;
-            }
+        // colorSwitchs.addEventListener("click", function(event) {
+        //     var index;
 
-            index = event.target.dataset.index;
-            linkHolder.href = colorSheets[index].href
+        //     if (event.target.nodeName !== "BUTTON") {
+        //         return;
+        //     }
 
-            return false;
-        });
+        //     index = event.target.dataset.index;
+        //     linkHolder.href = colorSheets[index].href;
 
-        controlBtn.addEventListener("click", function(event) {
-            event.target.parentElement.classList.toggle("ColorSwitcher--open");
+        //     return false;
+        // });
 
-            return false;
-        });
+        // controlBtn.addEventListener("click", function(event) {
+        //     event.target.parentElement.classList.toggle("ColorSwitcher--open");
 
-        colorSwitcher.appendChild(controlBtn);
-        colorSwitcher.appendChild(colorSwitchs);
-        tempCon.appendChild(colorSwitcher);
-        document.body.appendChild(tempCon);
+        //     return false;
+        // });
+
+        // colorSwitcher.appendChild(controlBtn);
+        // colorSwitcher.appendChild(colorSwitchs);
+        // tempCon.appendChild(colorSwitcher);
+        // document.body.appendChild(tempCon);
     }
 
     return {
