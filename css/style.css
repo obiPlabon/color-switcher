@@ -58,3 +58,10 @@ a:hover {
 	-webkit-transition: all .2s;
 	transition: all .2s;
 }
+
+.Button,
+.Button:focus,
+.Form__control,
+.Form__control:focus {
+	outline: none;
+}
