@@ -1,18 +1,50 @@
 ;(function() {
     "use strict";
 
-    var styleSheets, colorSheets, tempCon, colorSwitcher, controlBtn, colorSwitchs;
+    var styleSheets, colorSheets, tempCon, colorSwitcher, controlBtn, colorSwitchs, linkHolderHtml, linkHolder;
 
-    styleSheets = Array.prototype.slice.call(document.styleSheets);
+    colorSheets = [
+        {
+            color: "#ff8400",
+            title: "Switch to Default",
+            href: "./css/color-default.css"
+        },
+        {
+            color: "#ff463a",
+            title: "Switch to Red",
+            href: "./css/color-red.css"
+        },
+        {
+            color: "#4bda28",
+            title: "Switch to Green",
+            href: "./css/color-green.css"
+        },
+        {
+            color: "#4650dc",
+            title: "Switch to Blue",
+            href: "./css/color-blue.css"
+        },
+        {
+            color: "#f41c54",
+            title: "Switch to Magenta",
+            href: "./css/color-magenta.css"
+        }
+    ];
 
-    colorSheets = styleSheets.filter(function(colorSheet) {
-        return (colorSheet.ownerNode.dataset.color && colorSheet.title);
-    });
+    
+    
 
     tempCon = document.createDocumentFragment();
     colorSwitcher = document.createElement("div");
     controlBtn = document.createElement("button");
     colorSwitchs = document.createElement("div");
+    linkHolderHtml = document.createElement("link");
+    linkHolderHtml.rel = "stylesheet";
+    linkHolderHtml.id = "ColorSwitcherLinkHolder";
+    document.head.appendChild(linkHolderHtml);
+    linkHolder = document.getElementById("ColorSwitcherLinkHolder");
+
+
 
     colorSwitcher.classList.add("ColorSwitcher");
     controlBtn.classList.add("ColorSwitcher__control");
@@ -22,9 +54,9 @@
         var colorSwitch = document.createElement("button");
 
         colorSwitch.classList.add("ColorSwitcher__switch")
-        colorSwitch.title = "Switch to " + colorSheet.title;
-        colorSwitch.dataset.index = "s" + index;
-        colorSwitch.style.backgroundColor = colorSheet.ownerNode.dataset.color;
+        colorSwitch.title = colorSheet.title;
+        colorSwitch.dataset.index = index;
+        colorSwitch.style.backgroundColor = colorSheet.color;
         
         colorSwitchs.appendChild(colorSwitch);
     });
@@ -39,14 +71,8 @@
         }
 
         index = colorSwitch.dataset.index;
-        
-        colorSheets.forEach(function(colorSheet, sheetIndex) {
-            if (index === ("s" + sheetIndex)) {
-                colorSheet.disabled = false;
-            } else {
-                colorSheet.disabled = true;
-            }
-        });
+
+        linkHolder.href = colorSheets[index].href
 
         return false;
     });
